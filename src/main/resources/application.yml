@@ -1,0 +1,31 @@
+zuul:
+  routes:
+    serviceAbout:
+      path: /rest/about
+      url: forward:/
+    serviceVersion: 
+      path: /rest/version
+      url: forward:/
+    serviceAdeptia: 
+      path: /aboutinformation
+      url: http://localhost:8080/adeptia/rest/fetchproperties
+  ratelimit:
+    enabled: true
+    repository: JPA
+    policy-list:
+      serviceAbout: 
+      - limit: 5
+        refresh-interval: 60
+        type: 
+        - origin
+      serviceVersion: 
+      - limit: 1
+        refresh-interval: 2
+        type: 
+        - origin
+      serviceAdeptia: 
+      - limit: 1
+        refresh-interval: 2
+        type: 
+        - origin 
+  strip-prefix: true
