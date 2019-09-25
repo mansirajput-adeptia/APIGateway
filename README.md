@@ -1,23 +1,28 @@
-To get started with Zuul, 
+# To get started with Zuul, 
 
     Set up a Zuul Spring Boot project and configure the appropriate Maven dependences. 
     Modify the Spring Boot project with Spring Cloud annotations to tell it that it will be a Zuul service. 
     Configure Zuul to communicate with Eureka (optional)
 
-##Usage
+## Usage
 
 Add the dependency on pom.xml
 
+##### Maven (`pom.xml`)
+```XML
 <dependency>
     <groupId>com.marcosbarbero.cloud</groupId>
     <artifactId>spring-cloud-zuul-ratelimit</artifactId>
     <version>LATEST</version>
 </dependency>
+```
 
-How to add rate limiting to Zuul
+
+## How to add rate limiting to Zuul
 
 Configure the rates for each endpoint that you want to control. This can be done via either properties file or yml configuration. Sample yml file can be seen below. 
 
+```Java
 zuul:
   ratelimit:
     key-prefix: your-prefix
@@ -34,5 +39,5 @@ zuul:
           - origin
           - url
           - httpmethod
-
+```
 When one of the endpoints reached their configured rate limit, it will automatically respond with http error code 429 Too Many Requests for subsequent requests until the rate limit comes back to the allowed range. This will prevent the underlying service from being overload in a peak time or under a DoS attack.
