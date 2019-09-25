@@ -4,7 +4,7 @@ To get started with Zuul,
     Modify the Spring Boot project with Spring Cloud annotations to tell it that it will be a Zuul service. 
     Configure Zuul to communicate with Eureka (optional)
 
-Usage
+##Usage
 
 Add the dependency on pom.xml
 
