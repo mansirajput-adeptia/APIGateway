@@ -41,5 +41,5 @@ zuul:
 ```
 When one of the endpoints reached their configured rate limit, it will automatically respond with http error code 429 Too Many Requests for subsequent requests until the rate limit comes back to the allowed range. This will prevent the underlying service from being overload in a peak time or under a DoS attack.
 
-### Deploy Zuul
+### Deployment
 Zuul can be deployed as a (web application) WAR file to the Tomcat server. Adeptia Connect and Zuul can run on the same Tomcat installation, but with different ports.
